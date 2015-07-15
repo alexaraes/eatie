@@ -36528,7 +36528,7 @@ module.exports = Backbone.Collection.extend({
     parseClassName: 'Post'
 });
 
-},{"../models/PostModel":191,"backbone":2}],181:[function(require,module,exports){
+},{"../models/PostModel":190,"backbone":2}],181:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -36539,7 +36539,7 @@ module.exports = Backbone.Collection.extend({
     parseClassName: 'Restaurant'
 });
 
-},{"../models/SuggestionModel":192,"backbone":2}],182:[function(require,module,exports){
+},{"../models/SuggestionModel":191,"backbone":2}],182:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36759,7 +36759,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../../node_modules/underscore/underscore-min.js":179,"../models/SuggestionModel.js":192,"react":178}],184:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":179,"../models/SuggestionModel.js":191,"react":178}],184:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36794,28 +36794,24 @@ module.exports = React.createClass({
 			return React.createElement(
 				'div',
 				{ className: 'box' },
+				React.createElement('img', { src: suggestionModel.get('photo') }),
 				React.createElement(
-					'a',
-					{ href: '#restaurant' },
-					React.createElement('img', { src: suggestionModel.get('photo') }),
+					'span',
+					{ className: 'caption fade-caption' },
 					React.createElement(
-						'span',
-						{ className: 'caption fade-caption' },
-						React.createElement(
-							'h2',
-							{ className: 'suggName' },
-							suggestionModel.get('name')
-						),
-						React.createElement(
-							'p',
-							{ className: 'suggFood' },
-							suggestionModel.get('food')
-						),
-						React.createElement(
-							'p',
-							{ className: 'suggAdd' },
-							suggestionModel.get('address')
-						)
+						'h2',
+						{ className: 'suggName' },
+						suggestionModel.get('name')
+					),
+					React.createElement(
+						'p',
+						{ className: 'suggFood' },
+						suggestionModel.get('food')
+					),
+					React.createElement(
+						'p',
+						{ className: 'suggAdd' },
+						suggestionModel.get('address')
 					)
 				)
 			);
@@ -37057,8 +37053,6 @@ var React = require('react');
 var _ = require('../../node_modules/underscore/underscore-min.js');
 var PostModel = require('../models/PostModel.js');
 var PostCollection = require('../collections/PostCollection.js');
-var SuggestionModel = require('../models/SuggestionModel.js');
-var SuggestionCollection = require('../collections/SuggestionCollection.js');
 
 module.exports = React.createClass({
 	displayName: 'exports',
@@ -37083,72 +37077,34 @@ module.exports = React.createClass({
 			);
 		});
 
-		var dropdownOptions = this.props.suggestions.map(function (suggestionModel) {
-			return React.createElement(
-				'option',
-				null,
-				suggestionModel.get('name')
-			);
-		});
-
 		return React.createElement(
 			'div',
 			{ className: 'shareContainer' },
 			React.createElement(
 				'div',
 				{ className: 'shareTitle' },
-				'So what did you think?'
+				'Share your experience!'
 			),
 			React.createElement(
 				'form',
 				{ className: 'shareForm', type: 'submit', onSubmit: this.shareSubmit },
 				React.createElement(
-					'div',
+					'label',
 					{ className: 'shareLabel' },
-					'Where did you go?'
+					'Photo URL: '
 				),
-				React.createElement(
-					'div',
-					null,
-					React.createElement(
-						'select',
-						{ className: 'shareInput' },
-						React.createElement(
-							'option',
-							null,
-							'Choose a restaurant!'
-						),
-						dropdownOptions
-					)
-				),
+				React.createElement('input', { className: 'shareInput', type: 'text', ref: 'url' }),
 				React.createElement(
 					'div',
 					{ className: 'errorText' },
 					this.state.errors.url
 				),
 				React.createElement(
-					'div',
+					'label',
 					{ className: 'shareLabel' },
-					'How was it?'
+					'Optional Caption: '
 				),
-				React.createElement(
-					'div',
-					{ className: 'shareRate' },
-					React.createElement('input', { className: 'shareInput', type: 'checkbox', ref: 'caption' }),
-					'It was so tasty!'
-				),
-				React.createElement(
-					'div',
-					{ className: 'shareRate' },
-					React.createElement('input', { className: 'shareInput', type: 'checkbox', ref: 'caption' }),
-					'It was okay...'
-				),
-				React.createElement(
-					'div',
-					{ className: 'shareRate' },
-					React.createElement('input', { className: 'shareInput', type: 'checkbox', ref: 'caption' }),
-					'It was a bad choice.'
-				),
+				React.createElement('input', { className: 'shareInput', type: 'text', ref: 'caption' }),
 				React.createElement(
 					'button',
 					{ className: 'shareButton', type: 'submit' },
@@ -37195,31 +37151,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../../node_modules/underscore/underscore-min.js":179,"../collections/PostCollection.js":180,"../collections/SuggestionCollection.js":181,"../models/PostModel.js":191,"../models/SuggestionModel.js":192,"react":178}],188:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-
-module.exports = React.createClass({
-	displayName: 'exports',
-
-	render: function render() {
-		var that = this;
-
-		function initialize() {
-			var mapOptions = {
-				center: { lat: -34.397, lng: 150.644 },
-				zoom: 8
-			};
-			var map = new google.maps.Map(document.querySelector('.mapCanvas'), mapOptions);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-
-		return React.createElement('div', { className: 'mapCanvas', ref: 'mapCanvas' });
-	}
-});
-
-},{"react":178}],189:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":179,"../collections/PostCollection.js":180,"../models/PostModel.js":190,"react":178}],188:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -37331,7 +37263,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../../node_modules/underscore/underscore-min.js":179,"react":178}],190:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":179,"react":178}],189:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -37351,7 +37283,6 @@ var SignUpPage = require('./components/SignupComponent.js');
 var AdminPage = require('./components/AdminComponent.js');
 var ActivityFeed = require('./components/ActivityFeedComponent.js');
 var ProfilePage = require('./components/ProfileComponent.js');
-var InfoPage = require('./components/RestaurantComponent.js');
 
 var user = new UserModel();
 var suggestions = new SuggestionCollection();
@@ -37402,7 +37333,7 @@ var App = Backbone.Router.extend({
 		'login': 'login',
 		'profile/:userId': 'profile',
 		'feed': 'feed',
-		'restaurant/:name': 'restaurant',
+		'restaurant': 'restaurant',
 		'category/:category': 'category',
 		'admin': 'admin'
 	},
@@ -37418,14 +37349,14 @@ var App = Backbone.Router.extend({
 	},
 	profile: function profile(objectId) {
 		fetchPosts(objectId);
-		React.render(React.createElement(ProfilePage, { myApp: myApp, suggestions: suggestions, user: user }), containerEl);
+		React.render(React.createElement(HomePage, { myApp: myApp, suggestions: suggestions, user: user }), containerEl);
 	},
 	feed: function feed() {
 		fetchPosts();
 		React.render(React.createElement(ActivityFeed, { posts: posts, user: user, myApp: myApp }), containerEl);
 	},
 	restaurant: function restaurant() {
-		React.render(React.createElement(InfoPage, { user: user, suggestions: suggestions, myApp: myApp }), containerEl);
+		React.render(React.createElement(RestaurantPage, { user: user, myApp: myApp }), containerEl);
 	},
 	category: function category(_category) {
 		fetchSuggestions(_category);
@@ -37443,7 +37374,7 @@ console.log('application running');
 
 user.me();
 
-},{"./collections/PostCollection.js":180,"./collections/SuggestionCollection.js":181,"./components/ActivityFeedComponent.js":182,"./components/AdminComponent.js":183,"./components/HomeComponent.js":184,"./components/LoginComponent.js":185,"./components/NavbarComponent.js":186,"./components/ProfileComponent.js":187,"./components/RestaurantComponent.js":188,"./components/SignupComponent.js":189,"./models/PostModel.js":191,"./models/SuggestionModel.js":192,"./models/UserModel.js":193,"backbone":2,"jquery":6,"react":178}],191:[function(require,module,exports){
+},{"./collections/PostCollection.js":180,"./collections/SuggestionCollection.js":181,"./components/ActivityFeedComponent.js":182,"./components/AdminComponent.js":183,"./components/HomeComponent.js":184,"./components/LoginComponent.js":185,"./components/NavbarComponent.js":186,"./components/ProfileComponent.js":187,"./components/SignupComponent.js":188,"./models/PostModel.js":190,"./models/SuggestionModel.js":191,"./models/UserModel.js":192,"backbone":2,"jquery":6,"react":178}],190:[function(require,module,exports){
 'use strict';
 
 var parseSettings = require('../../config/parse.js');
@@ -37460,7 +37391,7 @@ module.exports = Backbone.Model.extend({
     idAttribute: 'objectId'
 });
 
-},{"../../config/parse.js":1,"backparse":4}],192:[function(require,module,exports){
+},{"../../config/parse.js":1,"backparse":4}],191:[function(require,module,exports){
 'use strict';
 
 var parseSettings = require('../../config/parse.js');
@@ -37482,7 +37413,7 @@ module.exports = Backbone.Model.extend({
 	idAttribute: 'objectId'
 });
 
-},{"../../config/parse.js":1,"backparse":4}],193:[function(require,module,exports){
+},{"../../config/parse.js":1,"backparse":4}],192:[function(require,module,exports){
 'use strict';
 
 var parseSettings = require('../../config/parse.js');
@@ -37502,7 +37433,7 @@ module.exports = Backbone.Model.extend({
     isUser: true
 });
 
-},{"../../config/parse.js":1,"backparse":4}]},{},[190])
+},{"../../config/parse.js":1,"backparse":4}]},{},[189])
 
 
 //# sourceMappingURL=all.js.map

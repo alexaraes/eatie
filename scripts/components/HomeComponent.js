@@ -27,14 +27,12 @@ module.exports = React.createClass({
 		var restEls = this.props.suggestions.map(function(suggestionModel) {
 			return (
 			  	<div className="box">
-			  		<a href="#restaurant">
-				        <img src={suggestionModel.get('photo')} />
-				        <span className="caption fade-caption">
-				        <h2 className="suggName">{suggestionModel.get('name')}</h2>
-				        <p className="suggFood">{suggestionModel.get('food')}</p>
-				        <p className="suggAdd">{suggestionModel.get('address')}</p>
-				        </span>
-			        </a>
+			        <img src={suggestionModel.get('photo')} />
+			        <span className="caption fade-caption">
+			        <h2 className="suggName">{suggestionModel.get('name')}</h2>
+			        <p className="suggFood">{suggestionModel.get('food')}</p>
+			        <p className="suggAdd">{suggestionModel.get('address')}</p>
+			        </span>
 			    </div>
 			)
 		});
@@ -49,6 +47,7 @@ module.exports = React.createClass({
 
 					<div className="grid" ref="grid">
 					  {restEls}
+
 					</div>
 				</div>
 			</div>

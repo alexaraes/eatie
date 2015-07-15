@@ -2,8 +2,6 @@ var React = require('react');
 var _ = require('../../node_modules/underscore/underscore-min.js');
 var PostModel = require('../models/PostModel.js');
 var PostCollection = require('../collections/PostCollection.js');
-var SuggestionModel = require('../models/SuggestionModel.js');
-var SuggestionCollection = require('../collections/SuggestionCollection.js');
 
 module.exports = React.createClass({
 	getInitialState: function() {
@@ -18,41 +16,22 @@ module.exports = React.createClass({
 			  <div className="grid-item">
 			  	<img src={postModel.get('image')}/>
 			  	<div className="categoryDiv">{postModel.get('caption')}</div>
-			  </div>	
+			  </div>
+					
 			)
 		});
 
-		var dropdownOptions = this.props.suggestions.map(function(suggestionModel) {
-			return (
-				<option>{suggestionModel.get('name')}</option>
-			)
-		})
-
 		return (
 			<div className="shareContainer">
-				<div className="shareTitle">So what did you think?</div>
+				<div className="shareTitle">Share your experience!</div>
 				<form className="shareForm" type='submit'  onSubmit={this.shareSubmit} >
 					
-					<div className="shareLabel">Where did you go?</div>
-					<div>
-						<select className="shareInput">
-							<option>Choose a restaurant!</option>
-							{dropdownOptions}
-						</select>
-					</div>
+					<label className="shareLabel">Photo URL: </label>
+					<input className="shareInput" type="text" ref="url" />
 					<div className="errorText">{this.state.errors.url}</div>
 
-					<div className="shareLabel">How was it?</div>
-
-					<div className="shareRate"><input className="shareInput" type="checkbox" ref="caption" />It was so tasty!</div>
-
-					<div className="shareRate">
-						<input className="shareInput" type="checkbox" ref="caption" />It was okay...
-					</div>
-
-					<div className="shareRate">
-						<input className="shareInput" type="checkbox" ref="caption" />It was a bad choice.
-					</div>
+					<label className="shareLabel">Optional Caption: </label>
+					<input className="shareInput" type="text" ref="caption" />
 
 					<button className="shareButton" type="submit">Share!</button>
 				</form>

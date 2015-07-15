@@ -1,0 +1,274 @@
+* {
+  font-family: "Open Sans", sans-serif; }
+
+.mapCanvas {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+#container {
+  font: "Open Sans", sans-serif, sans-serif;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-color: white;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+select {
+  border: 1px solid black;
+  border-radius: 0px;
+  font-size: 2vw; }
+
+li {
+  color: #fde0a0; }
+
+a {
+  text-decoration: none;
+  color: #fde0a0; }
+
+a:hover {
+  color: #f87272; }
+
+.homeContainer {
+  height: 100%;
+  width: 100%;
+  background-color: black; }
+
+.admin {
+  box-sizing: border-box;
+  padding-top: 200px;
+  padding-left: 30%; }
+
+button {
+  width: 50%;
+  height: 50px;
+  margin: 25px;
+  font-size: 4vw; }
+
+button {
+  width: 25%;
+  height: 50px;
+  margin: 25px;
+  border: none;
+  background-color: #f87272;
+  color: white; }
+
+input {
+  float: left; }
+
+.categoryDiv {
+  text-align: center; }
+
+.shareContainer {
+  color: black;
+  padding-top: 20%; }
+  .shareContainer .shareTitle {
+    margin: 20px;
+    font-size: 5.5vw; }
+  .shareContainer .shareForm {
+    padding: 20px; }
+    .shareContainer .shareForm .shareInput {
+      box-sizing: border-box;
+      width: 45%;
+      height: 50px;
+      margin: 0 auto;
+      display: block;
+      font-size: 2vw; }
+    .shareContainer .shareForm .shareLabel {
+      box-sizing: border-box;
+      font-size: 2vw;
+      display: block;
+      margin: 10px; }
+    .shareContainer .shareForm .shareRate {
+      display: inline-block;
+      font-size: 2vw;
+      clear: both; }
+    .shareContainer .shareForm .shareButton {
+      display: inline-block; }
+
+#container .box {
+  box-sizing: border-box;
+  border: 2px solid #8a0000;
+  border-color: #8a0000;
+  cursor: pointer;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 390px;
+  margin-left: auto;
+  margin-right: auto; }
+  #container .box img {
+    width: 100%; }
+
+/* Caption Common Style */
+#container .box .caption {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  color: #fff;
+  z-index: 9;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  left: 0; }
+
+/** Caption 3: Fade **/
+#container .box .fade-caption, #container .box .scale-caption {
+  box-sizing: border-box;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  padding: 10%; }
+
+#container .box:hover .fade-caption, #container .box:hover .scale-caption {
+  box-sizing: border-box;
+  opacity: 1; }
+
+.box {
+  box-sizing: border-box;
+  width: 390px;
+  float: left;
+  border: 2px solid #8a0000;
+  border-color: #8a0000;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+  .box img {
+    width: 100%;
+    margin-bottom: -5px; }
+
+.grid {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* clearfix */
+.box:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.suggName {
+  font-size: 6vw;
+  margin-bottom: 5%;
+  margin-top: 2%; }
+
+.suggFood {
+  font-size: 4.5vw;
+  margin-bottom: 8%; }
+
+.suggAdd {
+  font-size: 2.5vw; }
+
+.navbar {
+  box-sizing: border-box;
+  color: #fde0a0;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  z-index: 10;
+  font-family: "Open Sans", sans-serif;
+  text-align: right;
+  padding-top: 20px; }
+  .navbar .linkDiv {
+    display: inline-block;
+    color: #fde0a0;
+    margin-right: 6%; }
+  .navbar .greet {
+    text-align: left;
+    display: none;
+    color: #feeabe;
+    margin-right: 6%; }
+
+.bg-img {
+  height: 500px;
+  top: 65px;
+  padding-top: 60px;
+  margin-bottom: 50px;
+  position: relative;
+  background-size: cover;
+  background-image: url("../images/austin-skyline.jpg"); }
+
+.hello, .hello2 {
+  text-align: center;
+  font-size: 5.3vw;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  padding-top: 17%; }
+
+.hello2 {
+  margin-top: 40px; }
+
+.loginForm, .regForm {
+  text-align: center;
+  padding-top: 100px; }
+
+@media (min-width: 760px) {
+  .bg-img {
+    margin-bottom: 150px; }
+
+  .navbar .greet {
+    display: inline-block; }
+
+  .hello {
+    padding-top: 8%; }
+
+  .hello2 {
+    display: none; }
+
+  button {
+    height: 100px;
+    margin: 25px;
+    font-size: 3.4vw; }
+
+  input {
+    width: 50%;
+    height: 100px;
+    margin: 25px;
+    font-size: 3.4vw; }
+
+  .suggName {
+    font-size: 3.5vw; }
+
+  .suggFood {
+    font-size: 3vw;
+    margin-bottom: 8%; }
+
+  .suggAdd {
+    font-size: 2vw; }
+
+  .shareContainer {
+    padding-top: 5%; }
+    .shareContainer .shareTitle {
+      font-size: 2vw; }
+    .shareContainer .shareForm .shareLabel {
+      font-size: 1.5vw; }
+    .shareContainer .shareForm .shareButton {
+      height: 2%;
+      font-size: 2vw; }
+    .shareContainer .shareForm .shareInput {
+      width: 30%;
+      height: 30px;
+      font-size: 2vw; } }
+@media (min-width: 1300px) {
+  .bg-img {
+    margin-bottom: 200px; }
+
+  .suggName {
+    font-size: 2.8vw; }
+
+  .suggFood {
+    font-size: 1.6vw; }
+
+  .suggAdd {
+    font-size: 1vw; }
+
+  select {
+    height: 50px; } }
+
+/*# sourceMappingURL=styles.css.map */

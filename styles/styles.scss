@@ -22,6 +22,7 @@ li {
 a {
 	text-decoration: none;
 	color: #fde0a0;
+	font-size: 25px;
 }
 
 a:hover {
@@ -196,7 +197,7 @@ button {
 .navbar {
 	box-sizing: border-box;
 	color: #fde0a0;
-	height: 50px;
+	height: 90px;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.75);
 	position: fixed;
@@ -208,7 +209,7 @@ button {
 	.linkDiv {
 		display: inline-block;
 		color: #fde0a0;
-		margin-right: 6%;
+		margin-right: 7%;
 	}
 
 	.greet {
@@ -247,7 +248,7 @@ button {
 }
 
 
-@media (min-width: 760px) {
+@media (min-width: 769px) {
 	.bg-img {
 		margin-bottom: 150px;
 	}

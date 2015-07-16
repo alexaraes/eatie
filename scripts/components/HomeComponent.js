@@ -31,7 +31,7 @@ module.exports = React.createClass({
 			        <span className="caption fade-caption">
 			        <h2 className="suggName">{suggestionModel.get('name')}</h2>
 			        <p className="suggFood">{suggestionModel.get('food')}</p>
-			        <p className="suggAdd">{suggestionModel.get('address')}</p>
+			        <p className="suggAdd">{suggestionModel.get('description')}</p>
 			        </span>
 			    </div>
 			)

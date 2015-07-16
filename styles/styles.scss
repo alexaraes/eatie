@@ -17,6 +17,7 @@ $titlefont: 'Open Sans', sans-serif;
 
 li {
 	color: #fde0a0;
+	font-size: 18px;
 }
 
 a {
@@ -187,6 +188,7 @@ button {
 .suggFood {
 	font-size: 4.5vw;
 	margin-bottom: 8%;
+	color: #f87272;
 }
 
 .suggAdd {
@@ -196,7 +198,7 @@ button {
 .navbar {
 	box-sizing: border-box;
 	color: #fde0a0;
-	height: 50px;
+	height: 75px;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.75);
 	position: fixed;

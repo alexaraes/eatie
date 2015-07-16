@@ -31,11 +31,11 @@ React.render(
 );
 
 
-function fetchPosts(objectId) {
+function fetchPosts(userId) {
 	var q = {};
 
-	if(objectId) {
-		q.objectId = objectId;
+	if(userId) {
+		q.userId = userId;
 	}
 
 	posts.fetch({
@@ -92,9 +92,11 @@ var App = Backbone.Router.extend({
 			containerEl
 		);
 	},
-	profile: function(objectId) {
-		fetchPosts(objectId)
-		React.render(<HomePage myApp={myApp} suggestions={suggestions} user={user} />, containerEl);
+	profile: function(userId) {
+		fetchPosts(userId);
+		React.render(
+			<ProfilePage myApp={myApp} userId={userId} suggestions={suggestions} user={user} posts={posts} />, containerEl
+		);
 	},
 	feed: function() {
 		fetchPosts();

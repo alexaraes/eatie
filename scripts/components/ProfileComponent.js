@@ -5,37 +5,46 @@ var PostCollection = require('../collections/PostCollection.js');
 
 module.exports = React.createClass({
 	getInitialState: function() {
+		var that = this;
+
 		return {
 			errors:{}
 		}
+		
+		var posts = new PostCollection({
+			objectId: this.props.userId
+		});
+
+		posts.fetch();
+		posts.on('change', function() {
+			that.forceUpdate();
+		});
+		console.log(posts);
+		return {
+			posts: posts
+		};
 	},
 	render: function() {
 
-		var postEls = this.props.posts.map(function(postModel) {
+		var userShares = this.props.posts.map(function(postCollection) {
 			return (
-			  <div className="grid-item">
-			  	<img src={postModel.get('image')}/>
-			  	<div className="categoryDiv">{postModel.get('caption')}</div>
-			  </div>
-					
-			)
+				<div className="postListDiv">
+					<div>
+						<h1 className="postTitle">{this.state.posts.get('restaurant')}</h1>
+						<p className="postBody">{this.state.posts.get('rating')}</p>
+					</div>
+				</div>
+			);
 		});
 
 		return (
 			<div className="shareContainer">
 				<div className="shareTitle">Share your experience!</div>
 				<form className="shareForm" type='submit'  onSubmit={this.shareSubmit} >
-					
-					<label className="shareLabel">Photo URL: </label>
-					<input className="shareInput" type="text" ref="url" />
-					<div className="errorText">{this.state.errors.url}</div>
-
-					<label className="shareLabel">Optional Caption: </label>
-					<input className="shareInput" type="text" ref="caption" />
-
-					<button className="shareButton" type="submit">Share!</button>
+					<input type="text" ref="restaurant" />
+					<input type="text" ref="rating" />
 				</form>
-				{postEls}
+				{userShares}
 			</div>
 		)
 	},
@@ -46,8 +55,8 @@ module.exports = React.createClass({
 		var errors = {};
 
 		var newPost = new PostModel({
-			image: this.refs.url.getDOMNode().value,
-			caption: this.refs.caption.getDOMNode().value,
+			restaurant: this.refs.restaurant.getDOMNode().value,
+			rating: this.refs.rating.getDOMNode().value,
 			userId: this.props.user.get('objectId')
 		});
 
@@ -65,7 +74,7 @@ module.exports = React.createClass({
 				null, 
 				{
 			    success: function(postModel) {
-			    	that.props.myApp.navigate('/profile/'+this.props.user.get('objectId'), {trigger: true});
+			    	that.props.myApp.navigate('/profile/'+this.props.user.get('username'), {trigger: true});
 			        
 			    },
 			    error: function(postModel, response) {

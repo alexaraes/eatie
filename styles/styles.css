@@ -13,7 +13,7 @@
 
 li {
   color: #fde0a0;
-  font-size: 18px; }
+  font-size: 20px; }
 
 a {
   text-decoration: none;
@@ -140,17 +140,17 @@ button {
   clear: both; }
 
 .suggName {
-  font-size: 6vw;
+  font-size: 7vw;
   margin-bottom: 5%;
-  margin-top: 2%; }
+  margin-top: 3%; }
 
 .suggFood {
-  font-size: 4.5vw;
+  font-size: 5vw;
   margin-bottom: 8%;
   color: #f87272; }
 
 .suggAdd {
-  font-size: 2.5vw; }
+  font-size: 4vw; }
 
 .navbar {
   box-sizing: border-box;

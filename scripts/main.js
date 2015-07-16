@@ -15,6 +15,7 @@ var SignUpPage = require('./components/SignupComponent.js');
 var AdminPage = require('./components/AdminComponent.js');
 var ActivityFeed = require('./components/ActivityFeedComponent.js');
 var ProfilePage = require('./components/ProfileComponent.js');
+var RestaurantPage = require('./components/RestaurantInfoComponent.js');
 
 var user = new UserModel();
 var suggestions = new SuggestionCollection();
@@ -69,7 +70,7 @@ var App = Backbone.Router.extend({
 		'login': 'login',
 		'profile/:userId': 'profile',
 		'feed': 'feed',
-		'restaurant': 'restaurant',
+		'restaurant/:restaurant': 'restaurant',
 		'category/:category': 'category',
 		'admin': 'admin'
 	},
@@ -103,7 +104,7 @@ var App = Backbone.Router.extend({
 			containerEl
 		)
 	},
-	restaurant: function() {
+	restaurant: function(restaurant) {
 		React.render(
 			<RestaurantPage user={user} myApp={myApp} />,
 			containerEl

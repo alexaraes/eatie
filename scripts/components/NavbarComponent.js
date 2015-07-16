@@ -5,7 +5,6 @@ module.exports = React.createClass({
 	    this.props.user.on('change', function() {
 	    	
 	    	this.forceUpdate();
-	    	console.log('update check');
 
 	    }, this);
 	},

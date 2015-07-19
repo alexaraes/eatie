@@ -15,6 +15,8 @@ var SignUpPage = require('./components/SignupComponent.js');
 var AdminPage = require('./components/AdminComponent.js');
 var ActivityFeed = require('./components/ActivityFeedComponent.js');
 var ProfilePage = require('./components/ProfileComponent.js');
+var RestaurantPage = require('./components/RestaurantInfoComponent.js');
+var CategoryPage = require('./components/CategoryComponent.js');
 
 var user = new UserModel();
 var suggestions = new SuggestionCollection();
@@ -61,6 +63,21 @@ function fetchSuggestions(category) {
 	});
 }
 
+function fetchMap(name) {
+	var q = {};
+
+	if(name) {
+		q = name;
+	}
+
+	suggestions.fetch({
+		query: q,
+		success: function() {
+			React.render(<RestaurantPage suggestions={suggestions} user={user} myApp={myApp} /> , containerEl);
+		}
+	});
+}
+
 var App = Backbone.Router.extend({
 	routes: {
 		'': 'home',
@@ -69,16 +86,12 @@ var App = Backbone.Router.extend({
 		'login': 'login',
 		'profile/:userId': 'profile',
 		'feed': 'feed',
-		'restaurant': 'restaurant',
+		'restaurant/:restaurant': 'restaurant',
 		'category/:category': 'category',
 		'admin': 'admin'
 	},
 	home: function() {
 		fetchSuggestions();
-		React.render(
-			suggList,
-			containerEl
-		);
 	},
 	signup: function() {
 		React.render(
@@ -105,18 +118,11 @@ var App = Backbone.Router.extend({
 			containerEl
 		)
 	},
-	restaurant: function() {
-		React.render(
-			<RestaurantPage user={user} myApp={myApp} />,
-			containerEl
-		);
+	restaurant: function(name) {
+		fetchMap(name);
 	},
 	category: function(category) {
 		fetchSuggestions(category);
-		React.render(
-			<CategoryPage user={user} myApp={myApp} />,
-			containerEl
-		);
 	},
 	admin: function() {
 		React.render(

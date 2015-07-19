@@ -5,7 +5,6 @@ module.exports = React.createClass({
 	    this.props.user.on('change', function() {
 	    	
 	    	this.forceUpdate();
-	    	console.log('update check');
 
 	    }, this);
 	},
@@ -29,7 +28,7 @@ module.exports = React.createClass({
 						<li className="linkDiv"><a href="#home">HOME</a></li>
 						<li className="linkDiv"><a href="#feed">ACTIVITY</a></li>
 						<li className="linkDiv" onClick={this.onLogOut}><a href="#home">LOG OUT</a></li>
-						<li className="greet">Hey, <a href="#profile/"> {firstName}!</a></li>
+						<li className="greet">Hey, <a href={"#profile/"+firstName}> {firstName}!</a></li>
 					</ul>
 				</div>
 			);

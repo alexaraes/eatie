@@ -1,7 +1,19 @@
 $titlefont: 'Open Sans', sans-serif;
 
+@-ms-viewport{
+  width: device-width;
+}
+
 * {
 	font-family: $titlefont;
+}
+
+.map-canvas { 
+	height: 90%; 
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
 }
 
 #container {
@@ -17,15 +29,16 @@ $titlefont: 'Open Sans', sans-serif;
 
 li {
 	color: #fde0a0;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 a {
 	text-decoration: none;
 	color: #fde0a0;
+	
 }
 
-a:hover {
+a:hover, a:focus {
 		color: #f87272;
 	}
 
@@ -140,7 +153,7 @@ button {
 	padding: 10%;
 }
 
-#container .box:hover .fade-caption, #container .box:hover .scale-caption  {
+#container .box:hover .fade-caption, #container .box:hover .scale-caption, #container .box:focus .fade-caption, #container .box:focus .scale-caption  {
 	box-sizing: border-box;
 	opacity: 1;
 }
@@ -180,15 +193,15 @@ button {
 }
 
 .suggName {
-	font-size: 7vw;
-	margin-bottom: 5%;
-	margin-top: 3%;
+	font-size: 6vw;
+	margin-bottom: 7%;
+	margin-top: 2%;
 }
 
 .suggFood {
 	font-size: 5vw;
 	margin-bottom: 8%;
-	color: #f87272;
+	color: #fde0a0;
 }
 
 .suggAdd {
@@ -198,7 +211,7 @@ button {
 .navbar {
 	box-sizing: border-box;
 	color: #fde0a0;
-	height: 75px;
+	height: 90px;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.75);
 	position: fixed;
@@ -210,7 +223,7 @@ button {
 	.linkDiv {
 		display: inline-block;
 		color: #fde0a0;
-		margin-right: 6%;
+		margin-right: 7%;
 	}
 
 	.greet {
@@ -249,13 +262,21 @@ button {
 }
 
 
-@media (min-width: 760px) {
+@media (min-width: 769px) {
 	.bg-img {
 		margin-bottom: 150px;
 	}
 
+	li {
+		font-size: 16px;
+	}
+
 	.navbar .greet {
 		display: inline-block;
+	}
+
+	.navbar {
+		height: 50px;
 	}
 
 	.hello {
@@ -279,11 +300,11 @@ button {
 	}
 
 	.suggName {
-		font-size: 3.5vw;
+		font-size: 3.7vw;
 	}
 
 	.suggFood {
-		font-size: 3vw;
+		font-size: 2.8vw;
 		margin-bottom: 8%;
 	}
 
@@ -320,20 +341,35 @@ button {
 
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 990px) {
 	.bg-img {
 		margin-bottom: 200px;
 	}
 
 	.suggName {
-		font-size: 2.8vw;
+		font-size: 2.5vw;
 	}
 
 	.suggFood {
-		font-size: 1.6vw;
+		font-size: 2vw;
 	}
 
 	.suggAdd {
-		font-size: 1vw;
+		font-size: 1.5vw;
+	}
+}
+
+@media (min-width: 1200px) {
+
+	.suggName {
+		font-size: 2.2vw;
+	}
+
+	.suggFood {
+		font-size: 1.8vw;
+	}
+
+	.suggAdd {
+		font-size: 1.3vw;
 	}
 }

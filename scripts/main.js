@@ -24,6 +24,7 @@ var posts = new PostCollection();
 
 var suggList = (<HomePage myApp={myApp} suggestions={suggestions} user={user} />);
 var postList = (<ProfilePage myApp={myApp} suggestions={suggestions} user={user} posts={posts} />);
+var mapPage = (<RestaurantPage suggestions={suggestions} user={user} myApp={myApp} />);
 
 var containerEl = document.getElementById('container');
 
@@ -55,25 +56,32 @@ function fetchSuggestions(category) {
 		q.category = category;
 	}
 
+	
+
 	suggestions.fetch({
 		query: q,
 		success: function() {
+
 			React.render(suggList, containerEl);
 		}
 	});
 }
 
-function fetchMap(name) {
+function fetchMap(objectId) {
 	var q = {};
 
-	if(name) {
-		q = name;
+	if(objectId) {
+		q.objectId = objectId;
 	}
+
+	console.log('fukc this shit');
 
 	suggestions.fetch({
 		query: q,
 		success: function() {
-			React.render(<RestaurantPage suggestions={suggestions} user={user} myApp={myApp} /> , containerEl);
+			console.log(q);
+			console.log('ffffffuck');
+			React.render(mapPage , containerEl);
 		}
 	});
 }
@@ -86,7 +94,7 @@ var App = Backbone.Router.extend({
 		'login': 'login',
 		'profile/:userId': 'profile',
 		'feed': 'feed',
-		'restaurant/:restaurant': 'restaurant',
+		'info/:id': 'info',
 		'category/:category': 'category',
 		'admin': 'admin'
 	},
@@ -118,8 +126,8 @@ var App = Backbone.Router.extend({
 			containerEl
 		)
 	},
-	restaurant: function(name) {
-		fetchMap(name);
+	info: function(objectId) {
+		fetchMap(objectId);
 	},
 	category: function(category) {
 		fetchSuggestions(category);

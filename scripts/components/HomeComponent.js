@@ -27,7 +27,7 @@ module.exports = React.createClass({
 		var restEls = this.props.suggestions.map(function(suggestionModel) {
 			return (
 				  	<div className="box">
-				  	<a href={"#restaurant/"+suggestionModel.get('name')}>
+				  	<a href={"#info/"+suggestionModel.get('objectId')}>
 				        <img src={suggestionModel.get('photo')} />
 				        <span className="caption fade-caption">
 				        <h2 className="suggName">{suggestionModel.get('name')}</h2>

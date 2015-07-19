@@ -36813,7 +36813,7 @@ module.exports = React.createClass({
 				{ className: 'box' },
 				React.createElement(
 					'a',
-					{ href: '#restaurant/' + suggestionModel.get('name') },
+					{ href: '#info/' + suggestionModel.get('objectId') },
 					React.createElement('img', { src: suggestionModel.get('photo') }),
 					React.createElement(
 						'span',
@@ -37175,8 +37175,48 @@ module.exports = React.createClass({
 });
 
 },{"../../node_modules/underscore/underscore-min.js":179,"../collections/PostCollection.js":180,"../models/PostModel.js":192,"react":178}],189:[function(require,module,exports){
+'use strict';
 
-},{}],190:[function(require,module,exports){
+var React = require('react');
+var SuggestionModel = require('../models/SuggestionModel.js');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	getInitialState: function getInitialState() {
+		this.forceUpdate();
+	},
+	componentWillMount: function componentWillMount() {
+		google.maps.event.addDomListener(window, 'load', this.initialize());
+	},
+	initialize: function initialize() {
+
+		console.log(this.props.suggestions);
+		console.log('lat:' + this.props.suggestions.models[0].attributes.lat);
+		console.log('long:' + this.props.suggestions.models[0].attributes.lng);
+
+		var myLat = this.props.suggestions.models[0].attributes.lat;
+		var myLng = this.props.suggestions.models[0].attributes.lng;
+
+		var myLatlng = new google.maps.LatLng(myLat, myLng);
+
+		console.log(myLatlng);
+
+		var mapOptions = {
+			center: myLatlng,
+			zoom: 8
+		};
+
+		var newMap = new google.maps.Map(document.querySelector('map-canvas'), mapOptions);
+	},
+	render: function render() {
+		console.log('render function');
+		google.maps.event.addDomListener(window, 'load', this.initialize());
+		return React.createElement('div', { className: 'map-canvas' });
+	}
+});
+
+},{"../models/SuggestionModel.js":193,"react":178}],190:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -37317,6 +37357,7 @@ var posts = new PostCollection();
 
 var suggList = React.createElement(HomePage, { myApp: myApp, suggestions: suggestions, user: user });
 var postList = React.createElement(ProfilePage, { myApp: myApp, suggestions: suggestions, user: user, posts: posts });
+var mapPage = React.createElement(RestaurantPage, { suggestions: suggestions, user: user, myApp: myApp });
 
 var containerEl = document.getElementById('container');
 
@@ -37347,22 +37388,27 @@ function fetchSuggestions(category) {
 	suggestions.fetch({
 		query: q,
 		success: function success() {
+
 			React.render(suggList, containerEl);
 		}
 	});
 }
 
-function fetchMap(name) {
+function fetchMap(objectId) {
 	var q = {};
 
-	if (name) {
-		q = name;
+	if (objectId) {
+		q.objectId = objectId;
 	}
+
+	console.log('fukc this shit');
 
 	suggestions.fetch({
 		query: q,
 		success: function success() {
-			React.render(React.createElement(RestaurantPage, { suggestions: suggestions, user: user, myApp: myApp }), containerEl);
+			console.log(q);
+			console.log('ffffffuck');
+			React.render(mapPage, containerEl);
 		}
 	});
 }
@@ -37375,7 +37421,7 @@ var App = Backbone.Router.extend({
 		'login': 'login',
 		'profile/:userId': 'profile',
 		'feed': 'feed',
-		'restaurant/:restaurant': 'restaurant',
+		'info/:id': 'info',
 		'category/:category': 'category',
 		'admin': 'admin'
 	},
@@ -37396,8 +37442,8 @@ var App = Backbone.Router.extend({
 		fetchPosts();
 		React.render(React.createElement(ActivityFeed, { posts: posts, user: user, myApp: myApp }), containerEl);
 	},
-	restaurant: function restaurant(name) {
-		fetchMap(name);
+	info: function info(objectId) {
+		fetchMap(objectId);
 	},
 	category: function category(_category) {
 		fetchSuggestions(_category);

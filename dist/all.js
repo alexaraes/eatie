@@ -37243,7 +37243,6 @@ module.exports = React.createClass({
 			),
 			React.createElement('div', { className: 'map-canvas' })
 		);
-		google.maps.event.addDomListener(window, 'load', this.initialize());
 	}
 });
 

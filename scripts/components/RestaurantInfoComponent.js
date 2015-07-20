@@ -7,7 +7,6 @@ module.exports = React.createClass({
 	// },
 	componentDidMount: function(){ 
       google.maps.event.addDomListener(window, 'load', this.initialize());  
-
     },
     initialize: function() {
 
@@ -57,6 +56,5 @@ module.exports = React.createClass({
 				<div className="map-canvas"></div>
 			</div>
 		)
-		google.maps.event.addDomListener(window, 'load', this.initialize());
 	}
 });

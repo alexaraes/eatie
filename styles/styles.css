@@ -4,7 +4,7 @@
   font-family: "Open Sans", sans-serif; }
 
 .map-canvas {
-  height: 500px;
+  height: 200px;
   width: 100%;
   border-top: 2px solid #8a0000;
   border-bottom: 2px solid #8a0000; }
@@ -185,7 +185,7 @@ button {
 .navbar {
   box-sizing: border-box;
   color: #fde0a0;
-  height: 90px;
+  height: 60px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   position: fixed;

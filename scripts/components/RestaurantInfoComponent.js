@@ -42,8 +42,7 @@ module.exports = React.createClass({
 			<div className="infoDiv">
 				<div className="infoName">{this.props.suggestions.models[0].attributes.name}</div>
 				<div className="infoAdd">{this.props.suggestions.models[0].attributes.address}</div>
-				<div className="map-canvas">
-				</div>
+				<div className="map-canvas"></div>
 			</div>
 		)
 		google.maps.event.addDomListener(window, 'load', this.initialize());

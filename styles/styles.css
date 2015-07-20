@@ -296,30 +296,21 @@ button {
     margin-bottom: 200px; }
 
   .suggName {
-    font-size: 2.5vw; }
+    font-size: 30px; }
 
   .suggFood {
-    font-size: 2vw; }
+    font-size: 20px; }
 
   .suggAdd {
-    font-size: 1.5vw; } }
+    font-size: 15px; } }
 @media (min-width: 1200px) {
   .suggName {
-    font-size: 2.2vw; }
+    font-size: 32px; }
 
   .suggFood {
-    font-size: 1.8vw; }
+    font-size: 24px; }
 
   .suggAdd {
-    font-size: 1.3vw; } }
-@media (min-width: 1600px) {
-  .suggName {
-    font-size: 2vw; }
-
-  .suggFood {
-    font-size: 1.4vw; }
-
-  .suggAdd {
-    font-size: 1vw; } }
+    font-size: 16px; } }
 
 /*# sourceMappingURL=styles.css.map */

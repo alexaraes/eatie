@@ -37138,7 +37138,9 @@ module.exports = React.createClass({
 		posts.on('change', function () {
 			that.forceUpdate();
 		});
+
 		console.log(posts);
+
 		return {
 			posts: posts
 		};
@@ -37168,7 +37170,7 @@ module.exports = React.createClass({
 				{ className: 'shareForm', type: 'submit', onSubmit: this.shareSubmit },
 				React.createElement(
 					'label',
-					null,
+					{ className: 'shareLabel' },
 					'Where did you go?'
 				),
 				React.createElement(
@@ -37178,7 +37180,7 @@ module.exports = React.createClass({
 				),
 				React.createElement(
 					'label',
-					null,
+					{ className: 'shareLabel' },
 					'What did you think?'
 				),
 				React.createElement(

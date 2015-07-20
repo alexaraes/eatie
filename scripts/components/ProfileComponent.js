@@ -18,7 +18,9 @@ module.exports = React.createClass({
 		posts.on('change', function() {
 			that.forceUpdate();
 		});
+
 		console.log(posts);
+
 		return {
 			posts: posts
 		};
@@ -37,9 +39,9 @@ module.exports = React.createClass({
 			<div className="shareContainer">
 				<div className="shareTitle">Share your experience!</div>
 				<form className="shareForm" type='submit'  onSubmit={this.shareSubmit} >
-					<label>Where did you go?</label>
+					<label className="shareLabel">Where did you go?</label>
 						<select>{postChoices}</select>
-					<label>What did you think?</label>
+					<label className="shareLabel">What did you think?</label>
 					<select ref="rating">
 						<option>You...</option>
 						<option>loved it!</option>

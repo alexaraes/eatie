@@ -11,11 +11,10 @@ module.exports = React.createClass({
 			errors:{}
 		}
 		
-		var posts = new PostCollection({
-			objectId: this.props.userId
-		});
+		var posts = new PostCollection();
 
 		posts.fetch();
+		
 		posts.on('change', function() {
 			that.forceUpdate();
 		});
@@ -26,14 +25,11 @@ module.exports = React.createClass({
 	},
 	render: function() {
 
-		var userShares = this.props.posts.map(function(postCollection) {
+		this.props.posts.models.reverse(); 
+
+		var postChoices = this.props.suggestions.map(function(suggestionModel) {
 			return (
-				<div className="postListDiv">
-					<div>
-						<h1 className="postTitle">{this.state.posts.get('restaurant')}</h1>
-						<p className="postBody">{this.state.posts.get('rating')}</p>
-					</div>
-				</div>
+					<option>{suggestionModel.get('name')}</option>
 			);
 		});
 
@@ -41,10 +37,17 @@ module.exports = React.createClass({
 			<div className="shareContainer">
 				<div className="shareTitle">Share your experience!</div>
 				<form className="shareForm" type='submit'  onSubmit={this.shareSubmit} >
-					<input type="text" ref="restaurant" />
-					<input type="text" ref="rating" />
+					<label>Where did you go?</label>
+						<select>{postChoices}</select>
+					<label>What did you think?</label>
+					<select ref="rating">
+						<option>You...</option>
+						<option>loved it!</option>
+						<option>thought it was meh...</option>
+						<option>hated it!</option>
+					</select>
+					<button className="shareBtn">Share it!</button>
 				</form>
-				{userShares}
 			</div>
 		)
 	},
@@ -57,25 +60,30 @@ module.exports = React.createClass({
 		var newPost = new PostModel({
 			restaurant: this.refs.restaurant.getDOMNode().value,
 			rating: this.refs.rating.getDOMNode().value,
-			userId: this.props.user.get('objectId')
+			userId: this.props.user.get('objectId'),
+			userName: this.props.user.get('name')
 		});
 
-		console.log(this.props.user.get('objectId'));
-
-		console.log(newPost);
-
-		if (!newPost.get('url')) {
-			errors.url = 'please copy and paste your image url';
+		if (!newPost.get('restaurant')) {
+			errors.name = 'please choose a restaurant';
+		}
+		if (!newRating.get('rating')) {
+			errors.food = 'how did you like it?';
 		}
 
+		console.log(this.props.user.get('objectId'));
+		console.log('props ', this.props);
+		console.log(newPost);
+
 		if(_.isEmpty(errors)) {
+			console.log('post save attempt');
 
 			newPost.save(
 				null, 
 				{
 			    success: function(postModel) {
-			    	that.props.myApp.navigate('/profile/'+this.props.user.get('username'), {trigger: true});
-			        
+			    	console.log('post was posted');
+			    	that.props.myApp.navigate('home', {trigger: true});
 			    },
 			    error: function(postModel, response) {
 			    	that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;

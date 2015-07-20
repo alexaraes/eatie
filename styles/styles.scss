@@ -59,6 +59,7 @@ li {
 
 a {
 	text-decoration: none;
+	border: none;
 	color: #fde0a0;
 	
 }
@@ -71,6 +72,7 @@ a:hover, a:focus {
 	height: 100%;
 	width: 100%;
 	background-color: black;
+	padding-bottom: 50px;
 }
 
 .admin {
@@ -137,13 +139,12 @@ button {
 
 #container .box {
 	box-sizing: border-box;
-	// border: 2px solid #8a0000;
-	// border-color: #8a0000;
+	
 	cursor: pointer;
 	float: left;
 	position: relative;
 	overflow: hidden;
-	width: 390px;
+	width: 345px;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -259,7 +260,7 @@ button {
 	height: 500px;
 	top:65px;
 	padding-top: 60px;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	position: relative;
 	background-size: cover;
 	background-image: url('../images/austin-skyline.jpg');

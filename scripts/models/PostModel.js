@@ -3,10 +3,10 @@ var Backbone = require('backparse')(parseSettings);
 
 module.exports = Backbone.Model.extend({
     defaults: {
-        image: '',
-        objectId: '',
-        caption: '',
-        createdAt: ''
+        userId: '',
+        restaurant: '',
+        rating: '',
+        userName: ''
     },
     parseClassName: 'Post',
     idAttribute: 'objectId'

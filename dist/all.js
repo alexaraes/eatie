@@ -36544,20 +36544,66 @@ module.exports = Backbone.Collection.extend({
 
 var React = require('react');
 var _ = require('../../node_modules/underscore/underscore-min.js');
+var PostModel = require('../models/PostModel.js');
+var PostCollection = require('../collections/PostCollection.js');
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	getInitialState: function getInitialState() {
+		var that = this;
+
+		return {
+			errors: {}
+		};
+
+		var posts = new PostCollection();
+
+		posts.fetch();
+
+		posts.on('change', function () {
+			that.forceUpdate();
+		});
+		console.log(posts);
+		return {
+			posts: posts
+		};
+	},
 	render: function render() {
+
+		this.props.posts.models.reverse();
+
+		var postList = this.props.posts.map(function (postModel) {
+			return React.createElement(
+				'div',
+				{ className: 'submitted' },
+				React.createElement(
+					'span',
+					{ className: 'subName' },
+					this.props.posts.get('userName')
+				),
+				React.createElement(
+					'span',
+					{ className: 'subRestaurant' },
+					this.props.posts.get('restaurant')
+				),
+				React.createElement(
+					'span',
+					{ className: 'subRate' },
+					this.props.posts.get('rating')
+				)
+			);
+		});
+
 		return React.createElement(
 			'div',
-			{ className: 'feedClass' },
-			'hello'
+			{ className: 'shareContainer' },
+			postList
 		);
 	}
 });
 
-},{"../../node_modules/underscore/underscore-min.js":179,"react":178}],183:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":179,"../collections/PostCollection.js":180,"../models/PostModel.js":192,"react":178}],183:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36964,6 +37010,7 @@ module.exports = React.createClass({
 		var loggedInNav = null;
 		var links = [];
 		var firstName = this.props.user.get('name');
+		var userId = this.props.user.get('objectId');
 
 		console.log(firstName);
 
@@ -37037,7 +37084,7 @@ module.exports = React.createClass({
 						'Hey, ',
 						React.createElement(
 							'a',
-							{ href: '#profile/' + firstName },
+							{ href: '#profile/' + userId },
 							' ',
 							firstName,
 							'!'
@@ -37084,11 +37131,10 @@ module.exports = React.createClass({
 			errors: {}
 		};
 
-		var posts = new PostCollection({
-			objectId: this.props.userId
-		});
+		var posts = new PostCollection();
 
 		posts.fetch();
+
 		posts.on('change', function () {
 			that.forceUpdate();
 		});
@@ -37099,24 +37145,13 @@ module.exports = React.createClass({
 	},
 	render: function render() {
 
-		var userShares = this.props.posts.map(function (postCollection) {
+		this.props.posts.models.reverse();
+
+		var postChoices = this.props.suggestions.map(function (suggestionModel) {
 			return React.createElement(
-				'div',
-				{ className: 'postListDiv' },
-				React.createElement(
-					'div',
-					null,
-					React.createElement(
-						'h1',
-						{ className: 'postTitle' },
-						this.state.posts.get('restaurant')
-					),
-					React.createElement(
-						'p',
-						{ className: 'postBody' },
-						this.state.posts.get('rating')
-					)
-				)
+				'option',
+				null,
+				suggestionModel.get('name')
 			);
 		});
 
@@ -37131,10 +37166,51 @@ module.exports = React.createClass({
 			React.createElement(
 				'form',
 				{ className: 'shareForm', type: 'submit', onSubmit: this.shareSubmit },
-				React.createElement('input', { type: 'text', ref: 'restaurant' }),
-				React.createElement('input', { type: 'text', ref: 'rating' })
-			),
-			userShares
+				React.createElement(
+					'label',
+					null,
+					'Where did you go?'
+				),
+				React.createElement(
+					'select',
+					null,
+					postChoices
+				),
+				React.createElement(
+					'label',
+					null,
+					'What did you think?'
+				),
+				React.createElement(
+					'select',
+					{ ref: 'rating' },
+					React.createElement(
+						'option',
+						null,
+						'You...'
+					),
+					React.createElement(
+						'option',
+						null,
+						'loved it!'
+					),
+					React.createElement(
+						'option',
+						null,
+						'thought it was meh...'
+					),
+					React.createElement(
+						'option',
+						null,
+						'hated it!'
+					)
+				),
+				React.createElement(
+					'button',
+					{ className: 'shareBtn' },
+					'Share it!'
+				)
+			)
 		);
 	},
 	shareSubmit: function shareSubmit(e) {
@@ -37146,22 +37222,28 @@ module.exports = React.createClass({
 		var newPost = new PostModel({
 			restaurant: this.refs.restaurant.getDOMNode().value,
 			rating: this.refs.rating.getDOMNode().value,
-			userId: this.props.user.get('objectId')
+			userId: this.props.user.get('objectId'),
+			userName: this.props.user.get('name')
 		});
 
-		console.log(this.props.user.get('objectId'));
-
-		console.log(newPost);
-
-		if (!newPost.get('url')) {
-			errors.url = 'please copy and paste your image url';
+		if (!newPost.get('restaurant')) {
+			errors.name = 'please choose a restaurant';
+		}
+		if (!newRating.get('rating')) {
+			errors.food = 'how did you like it?';
 		}
 
+		console.log(this.props.user.get('objectId'));
+		console.log('props ', this.props);
+		console.log(newPost);
+
 		if (_.isEmpty(errors)) {
+			console.log('post save attempt');
 
 			newPost.save(null, {
 				success: function success(postModel) {
-					that.props.myApp.navigate('/profile/' + this.props.user.get('username'), { trigger: true });
+					console.log('post was posted');
+					that.props.myApp.navigate('home', { trigger: true });
 				},
 				error: function error(postModel, response) {
 					that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;
@@ -37217,9 +37299,11 @@ module.exports = React.createClass({
 		function calculateCenter() {
 			center = map.getCenter();
 		}
+
 		google.maps.event.addDomListener(map, 'idle', function () {
 			calculateCenter();
 		});
+
 		google.maps.event.addDomListener(window, 'resize', function () {
 			map.setCenter(center);
 		});
@@ -37386,9 +37470,7 @@ var suggestions = new SuggestionCollection();
 var posts = new PostCollection();
 
 var suggList = React.createElement(HomePage, { myApp: myApp, suggestions: suggestions, user: user });
-var postList = React.createElement(ProfilePage, { myApp: myApp, suggestions: suggestions, user: user, posts: posts });
 var mapPage = React.createElement(RestaurantPage, { suggestions: suggestions, user: user, myApp: myApp });
-
 var containerEl = document.getElementById('container');
 
 React.render(React.createElement(NavBar, { user: user, myApp: myApp }), document.getElementById('nav'));
@@ -37401,9 +37483,14 @@ function fetchPosts(userId) {
 	}
 
 	posts.fetch({
+
 		query: q,
 		success: function success() {
-			React.render(postList, containerEl);
+			suggestions.fetch({
+				success: function success() {
+					React.render(React.createElement(ProfilePage, { myApp: myApp, suggestions: suggestions, user: user, posts: posts }), containerEl);
+				}
+			});
 		}
 	});
 }
@@ -37418,7 +37505,6 @@ function fetchSuggestions(category) {
 	suggestions.fetch({
 		query: q,
 		success: function success() {
-
 			React.render(suggList, containerEl);
 		}
 	});
@@ -37466,11 +37552,9 @@ var App = Backbone.Router.extend({
 	},
 	profile: function profile(userId) {
 		fetchPosts(userId);
-		React.render(React.createElement(ProfilePage, { myApp: myApp, userId: userId, suggestions: suggestions, user: user, posts: posts }), containerEl);
 	},
 	feed: function feed() {
-		fetchPosts();
-		React.render(React.createElement(ActivityFeed, { posts: posts, user: user, myApp: myApp }), containerEl);
+		React.render(React.createElement(ActivityFeed, { user: user, posts: posts, suggestions: suggestions, myApp: myApp }), containerEl);
 	},
 	info: function info(objectId) {
 		fetchMap(objectId);
@@ -37498,10 +37582,10 @@ var Backbone = require('backparse')(parseSettings);
 
 module.exports = Backbone.Model.extend({
     defaults: {
-        image: '',
-        objectId: '',
-        caption: '',
-        createdAt: ''
+        userId: '',
+        restaurant: '',
+        rating: '',
+        userName: ''
     },
     parseClassName: 'Post',
     idAttribute: 'objectId'

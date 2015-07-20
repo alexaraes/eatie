@@ -37218,7 +37218,17 @@ module.exports = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'map' },
+			{ className: 'infoDiv' },
+			React.createElement(
+				'div',
+				{ className: 'infoName' },
+				this.props.suggestions.models[0].attributes.name
+			),
+			React.createElement(
+				'div',
+				{ className: 'infoAdd' },
+				this.props.suggestions.models[0].attributes.address
+			),
 			React.createElement('div', { className: 'map-canvas' })
 		);
 		google.maps.event.addDomListener(window, 'load', this.initialize());

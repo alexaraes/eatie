@@ -39,9 +39,10 @@ module.exports = React.createClass({
 		console.log('render function');
 		
 		return (
-			<div className="map">
+			<div className="infoDiv">
+				<div className="infoName">{this.props.suggestions.models[0].attributes.name}</div>
+				<div className="infoAdd">{this.props.suggestions.models[0].attributes.address}</div>
 				<div className="map-canvas">
-					
 				</div>
 			</div>
 		)

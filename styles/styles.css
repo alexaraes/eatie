@@ -6,6 +6,8 @@
 .map-canvas {
   height: 200px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   border-top: 2px solid #8a0000;
   border-bottom: 2px solid #8a0000; }
 
@@ -170,17 +172,17 @@ button {
   clear: both; }
 
 .suggName {
-  font-size: 6vw;
+  font-size: 32px;
   margin-bottom: 7%;
   margin-top: 2%; }
 
 .suggFood {
-  font-size: 5vw;
+  font-size: 24px;
   margin-bottom: 8%;
   color: #fde0a0; }
 
 .suggAdd {
-  font-size: 4vw; }
+  font-size: 16px; }
 
 .navbar {
   box-sizing: border-box;
@@ -257,14 +259,14 @@ button {
     font-size: 3.4vw; }
 
   .suggName {
-    font-size: 3.7vw; }
+    font-size: 32px; }
 
   .suggFood {
-    font-size: 2.8vw;
+    font-size: 24px;
     margin-bottom: 8%; }
 
   .suggAdd {
-    font-size: 2vw; }
+    font-size: 16px; }
 
   .shareContainer {
     padding-top: 5%; }
@@ -296,14 +298,17 @@ button {
     margin-bottom: 200px; }
 
   .suggName {
-    font-size: 30px; }
+    font-size: 32px; }
 
   .suggFood {
-    font-size: 20px; }
+    font-size: 24px; }
 
   .suggAdd {
-    font-size: 15px; } }
+    font-size: 16px; } }
 @media (min-width: 1200px) {
+  .map-canvas {
+    max-width: 75%; }
+
   .suggName {
     font-size: 32px; }
 

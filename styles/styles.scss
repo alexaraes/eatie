@@ -11,6 +11,8 @@ $titlefont: 'Open Sans', sans-serif;
 .map-canvas { 
 	height: 200px; 
 	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 	border-top: 2px solid #8a0000;
 	border-bottom: 2px solid #8a0000;
 }
@@ -214,19 +216,19 @@ button {
 }
 
 .suggName {
-	font-size: 6vw;
+	font-size: 32px;
 	margin-bottom: 7%;
 	margin-top: 2%;
 }
 
 .suggFood {
-	font-size: 5vw;
+	font-size: 24px;
 	margin-bottom: 8%;
 	color: #fde0a0;
 }
 
 .suggAdd {
-	font-size: 4vw;
+	font-size: 16px;
 }
 
 .navbar {
@@ -321,16 +323,16 @@ button {
 	}
 
 	.suggName {
-		font-size: 3.7vw;
+		font-size: 32px;
 	}
 
 	.suggFood {
-		font-size: 2.8vw;
+		font-size: 24px;
 		margin-bottom: 8%;
 	}
 
 	.suggAdd {
-		font-size: 2vw;
+		font-size: 16px;
 	}
 
 	.shareContainer {
@@ -384,21 +386,6 @@ button {
 	}
 
 	.suggName {
-		font-size: 30px;
-	}
-
-	.suggFood {
-		font-size: 20px;
-	}
-
-	.suggAdd {
-		font-size: 15px;
-	}
-}
-
-@media (min-width: 1200px) {
-
-	.suggName {
 		font-size: 32px;
 	}
 
@@ -411,30 +398,20 @@ button {
 	}
 }
 
-// @media (min-width: 1600px) {
-// 	.suggName {
-// 		font-size: 2vw;
-// 	}
+@media (min-width: 1200px) {
 
-// 	.suggFood {
-// 		font-size: 1.4vw;
-// 	}
+	.map-canvas {
+		max-width: 75%;
+	}
+	.suggName {
+		font-size: 32px;
+	}
 
-// 	.suggAdd {
-// 		font-size: 1vw;
-// 	}
-// }
+	.suggFood {
+		font-size: 24px;
+	}
 
-// @media (min-width: 2200px) {
-// 	.suggName {
-// 		font-size: 1.5vw;
-// 	}
-
-// 	.suggFood {
-// 		font-size: 1vw;
-// 	}
-
-// 	.suggAdd {
-// 		font-size: 0.5vw;
-// 	}
-// }
+	.suggAdd {
+		font-size: 16px;
+	}
+}

@@ -11,6 +11,8 @@ $titlefont: 'Open Sans', sans-serif;
 .map-canvas { 
 	height: 500px; 
 	width: 100%;
+	border-top: 2px solid #8a0000;
+	border-bottom: 2px solid #8a0000;
 }
 
 .infoDiv {

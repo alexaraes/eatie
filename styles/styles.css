@@ -181,8 +181,11 @@ button {
   margin-bottom: 8%;
   color: #fde0a0; }
 
-.suggAdd {
+.suggAdd, .suggCat {
   font-size: 16px; }
+
+.suggCat {
+  margin-top: 20px; }
 
 .navbar {
   box-sizing: border-box;
@@ -307,7 +310,13 @@ button {
     font-size: 16px; } }
 @media (min-width: 1200px) {
   .map-canvas {
-    max-width: 75%; }
+    max-width: 1400px; }
+
+  .infoName {
+    font-size: 50px; }
+
+  .infoAdd {
+    font-size: 40px; }
 
   .suggName {
     font-size: 32px; }

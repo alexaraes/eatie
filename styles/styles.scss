@@ -139,7 +139,6 @@ button {
 
 #container .box {
 	box-sizing: border-box;
-	
 	cursor: pointer;
 	float: left;
 	position: relative;
@@ -189,8 +188,8 @@ button {
 	width: 390px;
 	float: left;
 	// background-position: 65% 5%;
-	// border: 2px solid #8a0000;
-	// border-color: #8a0000;
+	border: 1px solid #8a0000;
+	border-color: #8a0000;
 	margin-left: auto;
 	margin-right: auto;
 	display:block;
@@ -400,14 +399,14 @@ button {
 @media (min-width: 1200px) {
 
 	.suggName {
-		font-size: 2.2vw;
+		font-size: 2vw;
 	}
 
 	.suggFood {
-		font-size: 1.8vw;
+		font-size: 1.4vw;
 	}
 
 	.suggAdd {
-		font-size: 1.3vw;
+		font-size: 1vw;
 	}
 }

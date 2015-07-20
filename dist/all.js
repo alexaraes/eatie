@@ -36841,8 +36841,6 @@ var React = require('react');
 // var Masonry = require('../../node_modules/masonry-layout/masonry.js');
 var MasonryMixin = require('react-masonry-mixin');
 
-// var suggestionModel = require('../models/SuggestionModel.js');
-
 var suggestionList = [];
 
 var masonryOptions = {

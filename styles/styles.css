@@ -192,6 +192,7 @@ button {
   height: 500px;
   top: 65px;
   padding-top: 60px;
+  padding-bottom: 50px;
   margin-bottom: 30px;
   position: relative;
   background-size: cover;
@@ -217,7 +218,8 @@ button {
   border-top: 40px solid white;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 150px; }
+  margin-top: 150px;
+  margin-bottom: 300px; }
 
 .loginForm, .regForm {
   text-align: center;

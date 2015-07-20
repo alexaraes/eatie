@@ -117,8 +117,8 @@ var App = Backbone.Router.extend({
 			containerEl
 		);
 	},
-	profile: function(userId) {
-		fetchPosts(userId);
+	profile: function() {
+		fetchPosts();
 	},
 	feed: function() {
 		React.render(

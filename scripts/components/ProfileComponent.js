@@ -40,7 +40,7 @@ module.exports = React.createClass({
 				<div className="shareTitle">Share your experience!</div>
 				<form className="shareForm" type='submit'  onSubmit={this.shareSubmit} >
 					<label className="shareLabel">Where did you go?</label>
-						<select>{postChoices}</select>
+						<select ref="restaurant">{postChoices}</select>
 					<label className="shareLabel">What did you think?</label>
 					<select ref="rating">
 						<option>You...</option>
@@ -69,7 +69,7 @@ module.exports = React.createClass({
 		if (!newPost.get('restaurant')) {
 			errors.name = 'please choose a restaurant';
 		}
-		if (!newRating.get('rating')) {
+		if (!newPost.get('rating')) {
 			errors.food = 'how did you like it?';
 		}
 
@@ -85,7 +85,7 @@ module.exports = React.createClass({
 				{
 			    success: function(postModel) {
 			    	console.log('post was posted');
-			    	that.props.myApp.navigate('home', {trigger: true});
+			    	that.props.myApp.navigate('feed', {trigger: true});
 			    },
 			    error: function(postModel, response) {
 			    	that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;

@@ -5,40 +5,45 @@ var PostCollection = require('../collections/PostCollection.js');
 
 module.exports = React.createClass({
 	getInitialState: function() {
+		console.log('getInitialState');
 		var that = this;
 
-		return {
-			errors:{}
-		}
+		// return {
+		// 	errors:{}
+		// }
 		
 		var posts = new PostCollection();
+		console.log(posts);
 
 		posts.fetch();
 		
-		posts.on('change', function() {
+		posts.on('sync', function() {
+			console.log('sync!!!');
 			that.forceUpdate();
 		});
 		console.log(posts);
 		return {
+			errors:{},
 			posts: posts
 		};
 	},
 	render: function() {
+		var that = this;
+		this.state.posts.models.reverse(); 
 
-		this.props.posts.models.reverse(); 
-
-		var postList = this.props.posts.map(function(postModel) {
+		var postList = this.state.posts.map(function(postModel) {
 			return (
-				<div className="submitted">
-					<span className="subName">{this.props.posts.get('userName')}</span>
-					<span className="subRestaurant">{this.props.posts.get('restaurant')}</span>
-					<span className="subRate">{this.props.posts.get('rating')}</span>
+				<div className="postlistDiv">
+					<span className="subName">{postModel.get('userName')} went to </span>
+					<span className="subRestaurant">{postModel.get('restaurant')} </span>
+					<span className="subRate">and {postModel.get('rating')}</span>
 				</div>
 			);
 		});
 
 		return (
 			<div className="shareContainer">
+				<div className="postHeader">What are people saying?</div>
 				{postList}
 			</div>
 		)

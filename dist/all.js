@@ -36551,46 +36551,53 @@ module.exports = React.createClass({
 	displayName: 'exports',
 
 	getInitialState: function getInitialState() {
+		console.log('getInitialState');
 		var that = this;
 
-		return {
-			errors: {}
-		};
+		// return {
+		// 	errors:{}
+		// }
 
 		var posts = new PostCollection();
+		console.log(posts);
 
 		posts.fetch();
 
-		posts.on('change', function () {
+		posts.on('sync', function () {
+			console.log('sync!!!');
 			that.forceUpdate();
 		});
 		console.log(posts);
 		return {
+			errors: {},
 			posts: posts
 		};
 	},
 	render: function render() {
+		var that = this;
+		this.state.posts.models.reverse();
 
-		this.props.posts.models.reverse();
-
-		var postList = this.props.posts.map(function (postModel) {
+		var postList = this.state.posts.map(function (postModel) {
 			return React.createElement(
 				'div',
-				{ className: 'submitted' },
+				{ className: 'postlistDiv' },
 				React.createElement(
 					'span',
 					{ className: 'subName' },
-					this.props.posts.get('userName')
+					postModel.get('userName'),
+					' went to '
 				),
 				React.createElement(
 					'span',
 					{ className: 'subRestaurant' },
-					this.props.posts.get('restaurant')
+					postModel.get('restaurant'),
+					' '
 				),
 				React.createElement(
 					'span',
 					{ className: 'subRate' },
-					this.props.posts.get('rating')
+					'and ',
+					postModel.get('rating')
 				)
 			);
 		});
@@ -36598,6 +36605,11 @@ module.exports = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'shareContainer' },
+			React.createElement(
+				'div',
+				{ className: 'postHeader' },
+				'What are people saying?'
+			),
 			postList
 		);
 	}
@@ -37175,7 +37187,7 @@ module.exports = React.createClass({
 				),
 				React.createElement(
 					'select',
-					null,
+					{ ref: 'restaurant' },
 					postChoices
 				),
 				React.createElement(
@@ -37231,7 +37243,7 @@ module.exports = React.createClass({
 		if (!newPost.get('restaurant')) {
 			errors.name = 'please choose a restaurant';
 		}
-		if (!newRating.get('rating')) {
+		if (!newPost.get('rating')) {
 			errors.food = 'how did you like it?';
 		}
 
@@ -37245,7 +37257,7 @@ module.exports = React.createClass({
 			newPost.save(null, {
 				success: function success(postModel) {
 					console.log('post was posted');
-					that.props.myApp.navigate('home', { trigger: true });
+					that.props.myApp.navigate('feed', { trigger: true });
 				},
 				error: function error(postModel, response) {
 					that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;
@@ -37552,8 +37564,8 @@ var App = Backbone.Router.extend({
 	login: function login() {
 		React.render(React.createElement(LoginPage, { user: user, myApp: myApp }), containerEl);
 	},
-	profile: function profile(userId) {
-		fetchPosts(userId);
+	profile: function profile() {
+		fetchPosts();
 	},
 	feed: function feed() {
 		React.render(React.createElement(ActivityFeed, { user: user, posts: posts, suggestions: suggestions, myApp: myApp }), containerEl);

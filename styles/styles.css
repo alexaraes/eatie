@@ -5,13 +5,22 @@
 
 .map-canvas {
   height: 500px;
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0; }
+  width: 100%; }
 
-.map {
-  padding-top: 75px; }
+.infoDiv {
+  padding-top: 150px; }
+
+.infoName {
+  text-align: left;
+  font-size: 6vw;
+  margin-bottom: 20px;
+  margin-left: 30px; }
+
+.infoAdd {
+  text-align: left;
+  font-size: 4.5vw;
+  margin-bottom: 30px;
+  margin-left: 30px; }
 
 #container {
   font: "Open Sans", sans-serif, sans-serif;
@@ -260,7 +269,19 @@ button {
     .shareContainer .shareForm .shareInput {
       width: 30%;
       height: 30px;
-      font-size: 2vw; } }
+      font-size: 2vw; }
+
+  .infoDiv {
+    padding-top: 80px; }
+
+  .infoName {
+    font-size: 4.4vw; }
+
+  .infoAdd {
+    font-size: 3vw; }
+
+  .map-canvas {
+    height: 400px; } }
 @media (min-width: 990px) {
   .bg-img {
     margin-bottom: 200px; }

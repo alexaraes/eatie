@@ -176,7 +176,7 @@ button {
 	box-sizing: border-box;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 150px
+	margin-top: 100px
 }
 
 /* clearfix */
@@ -285,10 +285,15 @@ button {
 	margin: 30px;
 }
 
+.fadeDiv {
+	padding-top: 100px;
+}
+
 
 @media (min-width: 769px) {
-	.bg-img {
-		margin-bottom: 150px;
+
+	.fadeDiv {
+		padding: 0;
 	}
 
 	li {
@@ -322,6 +327,13 @@ button {
 		height: 100px;
 		margin: 25px;
 		font-size: 3.4vw;
+	}
+
+	.grid {
+		box-sizing: border-box;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0;
 	}
 
 	.suggName {
@@ -391,7 +403,7 @@ button {
 
 @media (min-width: 990px) {
 	.bg-img {
-		margin-bottom: 200px;
+		margin-bottom: 100px;
 	}
 
 	.suggName {

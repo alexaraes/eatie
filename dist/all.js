@@ -36559,15 +36559,14 @@ module.exports = React.createClass({
 		// }
 
 		var posts = new PostCollection();
-		console.log(posts);
 
 		posts.fetch();
 
 		posts.on('sync', function () {
-			console.log('sync!!!');
+			console.log('nsync');
 			that.forceUpdate();
 		});
-		console.log(posts);
+
 		return {
 			errors: {},
 			posts: posts
@@ -36907,13 +36906,18 @@ module.exports = React.createClass({
 					{ className: 'bg-img' },
 					React.createElement(
 						'div',
-						{ className: 'hello' },
-						'Put Your City Where Your Mouth Is'
-					),
-					React.createElement(
-						'div',
-						{ className: 'hello2' },
-						'Scroll for noms \\/'
+						{ className: 'fadeDiv' },
+						React.createElement(
+							'div',
+							{ className: 'hello' },
+							'Eatie'
+						),
+						React.createElement(
+							'div',
+							{ className: 'hello2' },
+							'Put your city where your mouth is.'
+						),
+						React.createElement('div', { className: 'arrow-down' })
 					)
 				),
 				React.createElement(
@@ -37201,7 +37205,7 @@ module.exports = React.createClass({
 					React.createElement(
 						'option',
 						null,
-						'You...'
+						'You thought...'
 					),
 					React.createElement(
 						'option',

@@ -43,13 +43,15 @@ module.exports = React.createClass({
 			<div>
 				<div className="homeContainer">
 					<div className="bg-img">
-						<div className="hello">Put Your City Where Your Mouth Is</div>
-						<div className="hello2">Scroll for noms \/</div>
+						<div className="fadeDiv">
+							<div className="hello">Eatie</div>
+							<div className="hello2">Put your city where your mouth is.</div>
+							<div className="arrow-down"></div>
+						</div>
 					</div>
 
 					<div className="grid" ref="grid">
 					  {restEls}
-
 					</div>
 				</div>
 			</div>

@@ -53,7 +53,7 @@ a {
   color: #fde0a0; }
 
 a:hover, a:focus {
-  color: #ee9090; }
+  color: #e39816; }
 
 .homeContainer {
   height: 100%;
@@ -77,8 +77,8 @@ button {
   height: 50px;
   margin: 25px;
   border: none;
-  background-color: #f87272;
-  color: white; }
+  background-color: #751515;
+  color: #fde0a0; }
 
 .categoryDiv {
   text-align: center; }
@@ -181,7 +181,7 @@ button {
   .navbar .linkDiv {
     display: inline-block;
     color: #fde0a0;
-    margin-right: 7%; }
+    margin-right: 5%; }
   .navbar .greet {
     text-align: left;
     display: none;
@@ -197,15 +197,27 @@ button {
   background-size: cover;
   background-image: url("../images/austin-skyline.jpg"); }
 
-.hello, .hello2 {
+.hello, .hello2, .hello3 {
   text-align: center;
-  font-size: 5.3vw;
+  font-size: 14vw;
   color: white;
   font-family: "Open Sans", sans-serif;
-  padding-top: 17%; }
+  padding-top: 12%; }
 
 .hello2 {
-  margin-top: 40px; }
+  padding: 0;
+  font-size: 5.8vw;
+  margin-top: 60px; }
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px; }
 
 .loginForm, .regForm {
   text-align: center;
@@ -237,10 +249,11 @@ button {
     height: 50px; }
 
   .hello {
+    font-size: 9vw;
     padding-top: 8%; }
 
   .hello2 {
-    display: none; }
+    font-size: 4vw; }
 
   button {
     height: 100px;

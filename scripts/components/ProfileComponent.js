@@ -43,7 +43,7 @@ module.exports = React.createClass({
 						<select ref="restaurant">{postChoices}</select>
 					<label className="shareLabel">What did you think?</label>
 					<select ref="rating">
-						<option>You...</option>
+						<option>You thought...</option>
 						<option>loved it!</option>
 						<option>thought it was meh...</option>
 						<option>hated it!</option>

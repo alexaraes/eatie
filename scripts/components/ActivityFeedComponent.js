@@ -13,15 +13,14 @@ module.exports = React.createClass({
 		// }
 		
 		var posts = new PostCollection();
-		console.log(posts);
 
 		posts.fetch();
 		
 		posts.on('sync', function() {
-			console.log('sync!!!');
+			console.log('nsync');
 			that.forceUpdate();
 		});
-		console.log(posts);
+
 		return {
 			errors:{},
 			posts: posts

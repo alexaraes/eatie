@@ -2,10 +2,10 @@ var React = require('react');
 var SuggestionModel = require('../models/SuggestionModel.js');
 
 module.exports = React.createClass({
-	getInitialState: function() {
-		this.forceUpdate();
-	},
-	componentWillMount: function(){ 
+	// getInitialState: function() {
+	// 	this.forceUpdate();
+	// },
+	componentDidMount: function(){ 
       google.maps.event.addDomListener(window, 'load', this.initialize());  
 
     },
@@ -15,29 +15,36 @@ module.exports = React.createClass({
 		console.log('lat:'+ this.props.suggestions.models[0].attributes.lat);
 		console.log('long:'+ this.props.suggestions.models[0].attributes.lng);
 
-		var myLat = this.props.suggestions.models[0].attributes.lat;
-		var myLng = this.props.suggestions.models[0].attributes.lng;
-
-		var myLatlng = new google.maps.LatLng(myLat,myLng);
+		var myLatlng = new google.maps.LatLng(this.props.suggestions.models[0].attributes.lat,this.props.suggestions.models[0].attributes.lng);
 
 		console.log(myLatlng);
 
 		var mapOptions = {
           center: myLatlng,
-          zoom: 8
+          zoom: 15
         };
 
-        var newMap = new google.maps.Map(document.querySelector('map-canvas'),
+        var map = new google.maps.Map(document.querySelector(".map-canvas"),
             mapOptions);
+
+        var marker = new google.maps.Marker({
+		    position: myLatlng,
+		    map: map,
+		    title: 'Hello World!'
+		});
+
 	},
+
 	render: function() {
 		console.log('render function');
-		google.maps.event.addDomListener(window, 'load', this.initialize());
+		
 		return (
-
-			<div className="map-canvas">
-				
+			<div className="map">
+				<div className="map-canvas">
+					
+				</div>
 			</div>
 		)
+		google.maps.event.addDomListener(window, 'load', this.initialize());
 	}
 });

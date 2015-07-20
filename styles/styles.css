@@ -143,7 +143,8 @@ button {
 .grid {
   box-sizing: border-box;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-top: 300px; }
 
 /* clearfix */
 .box:after {
@@ -190,9 +191,7 @@ button {
 
 .bg-img {
   height: 500px;
-  top: 65px;
-  padding-top: 60px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   margin-bottom: 30px;
   position: relative;
   background-size: cover;
@@ -218,8 +217,7 @@ button {
   border-top: 40px solid white;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 150px;
-  margin-bottom: 300px; }
+  margin-top: 250px; }
 
 .loginForm, .regForm {
   text-align: center;

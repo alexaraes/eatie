@@ -36861,7 +36861,7 @@ module.exports = React.createClass({
 		var restEls = this.props.suggestions.map(function (suggestionModel) {
 			return React.createElement(
 				'div',
-				{ className: 'box' },
+				{ id: 'grid', className: 'box' },
 				React.createElement(
 					'a',
 					{ href: '#info/' + suggestionModel.get('objectId') },
@@ -36891,34 +36891,31 @@ module.exports = React.createClass({
 
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'homeContainer' },
 			React.createElement(
 				'div',
-				{ className: 'homeContainer' },
+				{ className: 'bg-img' },
 				React.createElement(
 					'div',
-					{ className: 'bg-img' },
+					{ className: 'fadeDiv' },
 					React.createElement(
 						'div',
-						{ className: 'fadeDiv' },
-						React.createElement(
-							'div',
-							{ className: 'hello' },
-							'eatie'
-						),
-						React.createElement(
-							'div',
-							{ className: 'hello2' },
-							'Put your city where your mouth is.'
-						),
-						React.createElement('div', { className: 'arrow-down' })
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'grid', ref: 'grid' },
-					restEls
+						{ className: 'hello' },
+						'eatie'
+					),
+					React.createElement(
+						'div',
+						{ className: 'hello2' },
+						'Put your city where your mouth is.'
+					),
+					React.createElement('div', { className: 'arrow-down', onClick: this.scrollDown })
 				)
+			),
+			React.createElement('div', { id: 'categories', className: 'categories' }),
+			React.createElement(
+				'div',
+				{ className: 'grid', ref: 'grid' },
+				restEls
 			)
 		);
 	}
@@ -37040,7 +37037,7 @@ module.exports = React.createClass({
 				React.createElement(
 					'a',
 					{ href: '#login' },
-					'SIGN IN'
+					'sign in'
 				)
 			));
 			links.push(React.createElement(
@@ -37049,7 +37046,7 @@ module.exports = React.createClass({
 				React.createElement(
 					'a',
 					{ href: '#signup' },
-					'SIGN UP'
+					'sign up'
 				)
 			));
 		}
@@ -37076,7 +37073,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'a',
 							{ href: '#feed' },
-							'ACTIVITY'
+							'activity'
 						)
 					),
 					React.createElement(
@@ -37085,7 +37082,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'a',
 							{ href: '#home' },
-							'LOG OUT'
+							'log out'
 						)
 					),
 					React.createElement(

@@ -189,13 +189,20 @@ button {
     left: 0;
     font-family: "Palanquin Dark", sans-serif;
     font-size: 28px;
-    margin-top: 0;
-    margin-left: 1%; }
+    margin-top: 8px;
+    margin-left: 3%; }
   .navbar .greet {
     text-align: left;
     display: none;
     color: #feeabe;
     margin-right: 6%; }
+
+.categories {
+  height: 60px;
+  width: 100%;
+  background-color: black;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease; }
 
 .bg-img {
   height: 500px;
@@ -260,14 +267,15 @@ button {
     display: inline-block; }
 
   .navbar {
-    height: 50px; }
+    height: 50px;
+    padding-bottom: 5px; }
 
   .hello {
     font-size: 10vw;
     padding-top: 8%; }
 
   .hello2 {
-    font-size: 4vw; }
+    font-size: 3vw; }
 
   button {
     height: 100px;

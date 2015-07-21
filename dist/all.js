@@ -36554,10 +36554,6 @@ module.exports = React.createClass({
 		console.log('getInitialState');
 		var that = this;
 
-		// return {
-		// 	errors:{}
-		// }
-
 		var posts = new PostCollection();
 
 		posts.fetch();

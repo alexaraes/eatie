@@ -7,10 +7,6 @@ module.exports = React.createClass({
 	getInitialState: function() {
 		console.log('getInitialState');
 		var that = this;
-
-		// return {
-		// 	errors:{}
-		// }
 		
 		var posts = new PostCollection();
 

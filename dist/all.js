@@ -36908,7 +36908,7 @@ module.exports = React.createClass({
 						React.createElement(
 							'div',
 							{ className: 'hello' },
-							'Eatie'
+							'eatie'
 						),
 						React.createElement(
 							'div',
@@ -37031,16 +37031,16 @@ module.exports = React.createClass({
 		if (!this.props.user.id) {
 			links.push(React.createElement(
 				'li',
-				{ className: 'linkDiv' },
+				{ className: 'navLink2' },
 				React.createElement(
 					'a',
 					{ href: '#home' },
-					'HOME'
+					'eatie'
 				)
 			));
 			links.push(React.createElement(
 				'li',
-				{ className: 'linkDiv' },
+				{ className: 'navLink' },
 				React.createElement(
 					'a',
 					{ href: '#login' },
@@ -37049,7 +37049,7 @@ module.exports = React.createClass({
 			));
 			links.push(React.createElement(
 				'li',
-				{ className: 'linkDiv' },
+				{ className: 'navLink' },
 				React.createElement(
 					'a',
 					{ href: '#signup' },
@@ -37060,23 +37060,23 @@ module.exports = React.createClass({
 		if (this.props.user.id) {
 
 			loggedInNav = React.createElement(
-				'div',
+				'nav',
 				null,
 				React.createElement(
 					'ul',
-					null,
+					{ className: 'navUl' },
 					React.createElement(
 						'li',
-						{ className: 'linkDiv' },
+						{ className: 'navLink2' },
 						React.createElement(
 							'a',
 							{ href: '#home' },
-							'HOME'
+							'eatie'
 						)
 					),
 					React.createElement(
 						'li',
-						{ className: 'linkDiv' },
+						{ className: 'navLink' },
 						React.createElement(
 							'a',
 							{ href: '#feed' },
@@ -37085,7 +37085,7 @@ module.exports = React.createClass({
 					),
 					React.createElement(
 						'li',
-						{ className: 'linkDiv', onClick: this.onLogOut },
+						{ className: 'navLink', onClick: this.onLogOut },
 						React.createElement(
 							'a',
 							{ href: '#home' },
@@ -37108,7 +37108,7 @@ module.exports = React.createClass({
 			);
 		}
 		return React.createElement(
-			'nav',
+			'div',
 			{ className: 'navbar' },
 			React.createElement(
 				'div',
@@ -37140,10 +37140,6 @@ module.exports = React.createClass({
 
 	getInitialState: function getInitialState() {
 		var that = this;
-
-		return {
-			errors: {}
-		};
 
 		var posts = new PostCollection();
 

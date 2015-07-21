@@ -6,10 +6,6 @@ var PostCollection = require('../collections/PostCollection.js');
 module.exports = React.createClass({
 	getInitialState: function() {
 		var that = this;
-
-		return {
-			errors:{}
-		}
 		
 		var posts = new PostCollection();
 

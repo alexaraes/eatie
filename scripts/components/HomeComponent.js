@@ -42,7 +42,7 @@ module.exports = React.createClass({
 				<div className="homeContainer">
 					<div className="bg-img">
 						<div className="fadeDiv">
-							<div className="hello">Eatie</div>
+							<div className="hello">eatie</div>
 							<div className="hello2">Put your city where your mouth is.</div>
 							<div className="arrow-down"></div>
 						</div>

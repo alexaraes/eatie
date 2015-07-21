@@ -17,28 +17,28 @@ module.exports = React.createClass({
 		console.log(firstName);
 		
 		if(!this.props.user.id) {
-			links.push(<li className="linkDiv"><a href="#home">HOME</a></li>);
-			links.push(<li className="linkDiv"><a href="#login">SIGN IN</a></li>);
-			links.push(<li className="linkDiv"><a href="#signup">SIGN UP</a></li>);
+			links.push(<li className="navLink2"><a href="#home">eatie</a></li>);
+			links.push(<li className="navLink"><a href="#login">SIGN IN</a></li>);
+			links.push(<li className="navLink"><a href="#signup">SIGN UP</a></li>);
 		}
 		if (this.props.user.id) {
 
 			loggedInNav = (
-				<div>
-					<ul>
-						<li className="linkDiv"><a href="#home">HOME</a></li>
-						<li className="linkDiv"><a href="#feed">ACTIVITY</a></li>
-						<li className="linkDiv" onClick={this.onLogOut}><a href="#home">LOG OUT</a></li>
+				<nav>
+					<ul className="navUl">
+						<li className="navLink2"><a href="#home">eatie</a></li>
+						<li className="navLink"><a href="#feed">ACTIVITY</a></li>
+						<li className="navLink" onClick={this.onLogOut}><a href="#home">LOG OUT</a></li>
 						<li className="greet">Hey, <a href={"#profile/"+userId}> {firstName}!</a></li>
 					</ul>
-				</div>
+				</nav>
 			);
 		}
 		return (
-			<nav className="navbar">
+			<div className="navbar">
 				<div>{links}</div>
 				<div>{loggedInNav}</div>
-			</nav>
+			</div>
 		);
 	},
 	onLogOut: function() {

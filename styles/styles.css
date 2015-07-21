@@ -50,10 +50,10 @@ li {
 a {
   text-decoration: none;
   border: none;
-  color: #fde0a0; }
+  color: #feeabe; }
 
 a:hover, a:focus {
-  color: #e39816; }
+  color: white; }
 
 .homeContainer {
   height: 100%;
@@ -178,11 +178,19 @@ button {
   z-index: 10;
   font-family: "Open Sans", sans-serif;
   text-align: right;
-  padding-top: 20px; }
-  .navbar .linkDiv {
+  padding-top: 10px; }
+  .navbar .navLink, .navbar .navLink2 {
     display: inline-block;
     color: #fde0a0;
-    margin-right: 5%; }
+    margin-right: 5%;
+    margin-top: 10px; }
+  .navbar .navLink2 {
+    position: absolute;
+    left: 0;
+    font-family: "Palanquin Dark", sans-serif;
+    font-size: 28px;
+    margin-top: 0;
+    margin-left: 1%; }
   .navbar .greet {
     text-align: left;
     display: none;
@@ -202,12 +210,15 @@ button {
   font-size: 14vw;
   color: white;
   font-family: "Open Sans", sans-serif;
-  padding-top: 12%; }
+  padding-top: 20%; }
+
+.hello {
+  font-family: "Palanquin Dark", sans-serif; }
 
 .hello2 {
   padding: 0;
   font-size: 5.8vw;
-  margin-top: 60px; }
+  margin-top: 20px; }
 
 .arrow-down {
   width: 0;
@@ -252,7 +263,7 @@ button {
     height: 50px; }
 
   .hello {
-    font-size: 9vw;
+    font-size: 10vw;
     padding-top: 8%; }
 
   .hello2 {

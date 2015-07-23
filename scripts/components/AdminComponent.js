@@ -12,7 +12,7 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<form className="admin" type="submit" ref="newSugg" onSubmit={this.register}>
-					<div>Hello there!</div>
+					<div className="adminTitle">Hello there!</div>
 
 					<label>Restaurant Name</label><br />
 					<input type="text" ref="name" /><br />

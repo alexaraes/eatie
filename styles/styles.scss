@@ -52,14 +52,6 @@ li {
 	font-size: 25px;
 }
 
-.logo {
-	float: left;
-	margin-left: 40px;
-	height: 100px;
-	background-image: url("http://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/44/448/448827/chef_006_thumb-f.jpg");
-	z-index: 100;
-}
-
 a {
 	text-decoration: none;
 	border: none;
@@ -80,8 +72,14 @@ a:hover, a:focus {
 
 .admin {
 	box-sizing: border-box;
-	padding-top: 200px;
-	padding-left: 30%;
+	padding-top: 20%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.adminTitle {
+	font-size: 5vw;
+	margin-bottom: 20px;
 }
 
 input, button {
@@ -93,7 +91,6 @@ input, button {
 
 button {
 	width: 25%;
-	height: 50px;
 	margin: 25px;
 	border: none;
 	background-color: #751515;
@@ -219,20 +216,24 @@ button {
 	text-align: right;
 	padding-top: 10px;
 
-	.navLink, .navLink2 {
+	.navLink {
 		display: inline-block;
 		color: #fde0a0;
 		margin-right: 5%;
-		margin-top: 10px;
+		margin-top: 8px;
 	}
+
 
 	.navLink2 {
 		position: absolute;
 		left: 0;
 		font-family: $decorfont;
 		font-size: 28px;
-		margin-top: 8px;
 		margin-left: 3%;
+		margin-bottom: 10px;
+		display: inline-block;
+		color: #fde0a0;
+		margin-right: 5%;
 	}
 
 	.greet {
@@ -246,18 +247,29 @@ button {
 .categories {
 	height: 60px;
 	width: 100%;
+	margin-bottom: 30px;
 	background-color: black;
+	color: white;
 	cursor: pointer;
 	-webkit-transition: all 0.5s ease;
+}
+
+.catLink {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.catDiv {
+	padding: 5%;
 }
 
 .bg-img {
 	height: 500px;
 	padding-bottom: 300px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	position: relative;
 	background-size: cover;
-	background-image: url('../images/austin-skyline.jpg');
+	background-image: url('../images/austin.jpg');
 }
 
 .hello, .hello2, .hello3 {
@@ -312,8 +324,39 @@ button {
 	padding-top: 100px;
 }
 
+.shareBtn {
+	height: 30px;
+}
+
+.shareDiv {
+	margin: 30px;
+}
+
+select {
+	margin-left: 10px;
+}
+
 
 @media (min-width: 769px) {
+
+	.catLink {
+		margin-left: 5%;
+		display: inline;
+		margin-bottom: 10px;
+	}
+
+	.catDiv {
+		display: inline;
+		padding: 0;
+	}
+
+	.admin {
+		padding-top: 10%;
+	}
+
+	.adminTitle {
+		font-size: 3vw;
+	}
 
 	.fadeDiv {
 		padding: 0;
@@ -376,6 +419,10 @@ button {
 	.shareContainer {
 	padding-top: 5%;
 
+		.shareDiv {
+			margin: 30px;
+		}
+
 		.shareTitle {
 			font-size: 2vw;
 		}
@@ -386,15 +433,10 @@ button {
 				font-size: 1.5vw;
 			}
 
-			.shareButton {
-				height: 2%;
+			.shareBtn {
+				height: 50px;
 				font-size: 2vw;
-			}
-
-			.shareInput {
-				width: 30%;
-				height: 30px;
-				font-size: 2vw;
+				width: 20%;
 			}
 		}
 
@@ -427,7 +469,7 @@ button {
 
 @media (min-width: 990px) {
 	.bg-img {
-		margin-bottom: 100px;
+		margin-bottom: 70px;
 	}
 
 	.suggName {

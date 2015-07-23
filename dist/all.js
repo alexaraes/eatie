@@ -36634,7 +36634,7 @@ module.exports = React.createClass({
 				{ className: 'admin', type: 'submit', ref: 'newSugg', onSubmit: this.register },
 				React.createElement(
 					'div',
-					null,
+					{ className: 'adminTitle' },
 					'Hello there!'
 				),
 				React.createElement(
@@ -36911,13 +36911,101 @@ module.exports = React.createClass({
 					React.createElement('div', { className: 'arrow-down', onClick: this.scrollDown })
 				)
 			),
-			React.createElement('div', { id: 'categories', className: 'categories' }),
+			React.createElement(
+				'div',
+				{ id: 'categories', className: 'categories' },
+				React.createElement(
+					'div',
+					{ className: 'catDiv' },
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Burger' },
+							'Burger'
+						)
+					),
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Comfort' },
+							'Comfort'
+						)
+					),
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Drinks' },
+							'Drinks'
+						)
+					),
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Fusion' },
+							'Fusion'
+						)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'catDiv' },
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Pizza' },
+							'Pizza'
+						)
+					),
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Sandwiches' },
+							'Sandwiches'
+						)
+					),
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Sushi' },
+							'Sushi'
+						)
+					),
+					React.createElement(
+						'span',
+						{ className: 'catLink' },
+						React.createElement(
+							'a',
+							{ href: '#category/Tex-Mex' },
+							'Tex-Mex'
+						)
+					)
+				)
+			),
 			React.createElement(
 				'div',
 				{ className: 'grid', ref: 'grid' },
 				restEls
 			)
 		);
+	},
+	scrollDown: function scrollDown() {
+		$('html, body').animate({
+			scrollTop: $('#categories').offset().top
+		}, 1000);
 	}
 });
 
@@ -37172,42 +37260,50 @@ module.exports = React.createClass({
 				'form',
 				{ className: 'shareForm', type: 'submit', onSubmit: this.shareSubmit },
 				React.createElement(
-					'label',
-					{ className: 'shareLabel' },
-					'Where did you go?'
-				),
-				React.createElement(
-					'select',
-					{ ref: 'restaurant' },
-					postChoices
-				),
-				React.createElement(
-					'label',
-					{ className: 'shareLabel' },
-					'What did you think?'
-				),
-				React.createElement(
-					'select',
-					{ ref: 'rating' },
+					'div',
+					{ className: 'shareDiv' },
 					React.createElement(
-						'option',
-						null,
-						'You thought...'
+						'label',
+						{ className: 'shareLabel' },
+						'Where did you go?'
 					),
 					React.createElement(
-						'option',
-						null,
-						'loved it!'
+						'select',
+						{ ref: 'restaurant' },
+						postChoices
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'shareDiv' },
+					React.createElement(
+						'label',
+						{ className: 'shareLabel' },
+						'What did you think?'
 					),
 					React.createElement(
-						'option',
-						null,
-						'thought it was meh...'
-					),
-					React.createElement(
-						'option',
-						null,
-						'hated it!'
+						'select',
+						{ ref: 'rating' },
+						React.createElement(
+							'option',
+							null,
+							'You thought...'
+						),
+						React.createElement(
+							'option',
+							null,
+							'loved it!'
+						),
+						React.createElement(
+							'option',
+							null,
+							'thought it was meh...'
+						),
+						React.createElement(
+							'option',
+							null,
+							'hated it!'
+						)
 					)
 				),
 				React.createElement(

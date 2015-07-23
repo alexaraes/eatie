@@ -46,11 +46,25 @@ module.exports = React.createClass({
 								<div className="arrow-down" onClick={this.scrollDown} ></div>
 							</div>
 						</div>
-						<div id="categories" className="categories"></div>
+						<div id="categories" className="categories">
+							<div className="catDiv"><span className="catLink"><a href="#category/Burger">Burger</a></span>
+							<span className="catLink"><a href="#category/Comfort">Comfort</a></span>
+							<span className="catLink"><a href="#category/Drinks">Drinks</a></span>
+							<span className="catLink"><a href="#category/Fusion">Fusion</a></span></div>
+							<div className="catDiv"><span className="catLink"><a href="#category/Pizza">Pizza</a></span>
+							<span className="catLink"><a href="#category/Sandwiches">Sandwiches</a></span>
+							<span className="catLink"><a href="#category/Sushi">Sushi</a></span>
+							<span className="catLink"><a href="#category/Tex-Mex">Tex-Mex</a></span></div>
+						</div>
 						<div className="grid" ref="grid">
 						  {restEls}
 						</div>
 					</div>
 		);	
+	},
+	scrollDown: function() {
+		$('html, body').animate({
+	        scrollTop: $("#categories").offset().top
+	    }, 1000);
 	}
 });

@@ -35,15 +35,19 @@ module.exports = React.createClass({
 			<div className="shareContainer">
 				<div className="shareTitle">Share your experience!</div>
 				<form className="shareForm" type='submit'  onSubmit={this.shareSubmit} >
-					<label className="shareLabel">Where did you go?</label>
-						<select ref="restaurant">{postChoices}</select>
-					<label className="shareLabel">What did you think?</label>
-					<select ref="rating">
-						<option>You thought...</option>
-						<option>loved it!</option>
-						<option>thought it was meh...</option>
-						<option>hated it!</option>
-					</select>
+					<div className="shareDiv">
+						<label className="shareLabel">Where did you go?</label>
+							<select ref="restaurant">{postChoices}</select>
+					</div>
+					<div className="shareDiv">
+						<label className="shareLabel">What did you think?</label>
+						<select ref="rating">
+							<option>You thought...</option>
+							<option>loved it!</option>
+							<option>thought it was meh...</option>
+							<option>hated it!</option>
+						</select>
+					</div>
 					<button className="shareBtn">Share it!</button>
 				</form>
 			</div>

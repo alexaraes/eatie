@@ -206,10 +206,10 @@ button {
 
 .navbar {
 	box-sizing: border-box;
-	color: #fde0a0;
+	color: #e2e1dd;
 	height: 60px;
 	width: 100%;
-	background-color: #751515;
+	background-color: red;
 	position: fixed;
 	z-index: 10;
 	font-family: $titlefont;
@@ -248,7 +248,7 @@ button {
 	height: 60px;
 	width: 100%;
 	margin-bottom: 30px;
-	background-color: black;
+	background-color: white;
 	color: white;
 	cursor: pointer;
 	-webkit-transition: all 0.5s ease;

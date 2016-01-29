@@ -5,7 +5,6 @@ module.exports = React.createClass({
 		return (
 			<div className="grid" ref="grid">
 					  {restEls}
-
 					</div>
 		)
 	}
